@@ -1,0 +1,5 @@
+<h1>all movie</h1>
+<div *ngFor = "let item of movies">
+    <img [src]="item.image" width="200">
+    <p> {{item.name}} </p>
+</div>
