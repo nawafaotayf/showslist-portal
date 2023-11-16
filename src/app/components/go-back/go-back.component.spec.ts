@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MovieComponent } from './movie.component';
+import { GoBackComponent } from './go-back.component';
 
-describe('MovieComponent', () => {
-  let component: MovieComponent;
-  let fixture: ComponentFixture<MovieComponent>;
+describe('GoBackComponent', () => {
+  let component: GoBackComponent;
+  let fixture: ComponentFixture<GoBackComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MovieComponent]
+      declarations: [GoBackComponent]
     });
-    fixture = TestBed.createComponent(MovieComponent);
+    fixture = TestBed.createComponent(GoBackComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

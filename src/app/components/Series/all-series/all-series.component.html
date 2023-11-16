@@ -1,0 +1,7 @@
+<app-go-back></app-go-back>
+<div *ngFor="let item of allSeries">
+    <a [routerLink]="['/series', item.id]">
+        <img [src]="item.image" width="100">
+        <p> {{item.name}} </p>
+    </a>
+</div>

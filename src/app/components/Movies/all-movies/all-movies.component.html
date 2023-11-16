@@ -1,0 +1,8 @@
+<app-go-back></app-go-back>
+<h1>all movie</h1>
+<div *ngFor = "let item of movies">
+    <a [routerLink]="['/movie', item.id]">
+        <img [src]="item.image" width="100">
+        <p> {{item.name}} </p>
+    </a>
+</div>

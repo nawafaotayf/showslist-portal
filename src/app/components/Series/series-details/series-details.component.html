@@ -1,0 +1,13 @@
+<app-go-back></app-go-back>
+<div *ngFor="let item of seriesDetails">
+    <h1> {{item.name}} </h1>
+    <img [src]="item.image" width="100">
+    <p> Story: {{item.story}} </p>
+    <p> Duration: {{item.duration}} </p>
+    <p> studio: {{item.studios}} </p>
+    <p> Season: {{item.seasons}} </p>
+    <p> Episodes: {{item.episodes}} </p>
+    <p> Start Date: {{item.start}} </p>
+    <p> End Date: {{item.end}} </p>
+    <app-rating-by-shows-id [id] = "item.id"></app-rating-by-shows-id>
+</div>
