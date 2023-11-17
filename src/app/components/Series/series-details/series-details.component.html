@@ -9,5 +9,5 @@
     <p> Episodes: {{item.episodes}} </p>
     <p> Start Date: {{item.start}} </p>
     <p> End Date: {{item.end}} </p>
-    <app-rating-by-shows-id [id] = "item.id"></app-rating-by-shows-id>
+    <app-rating-by-shows-id [id] = "item.id" (commentAdded)="onRatingAdded($event)" ></app-rating-by-shows-id>
 </div>

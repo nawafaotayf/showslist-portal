@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class RatingApiService {
   readonly ratingApi = "http://localhost:8080/movielist/rating"
-
   constructor(private http: HttpClient) {}
 
   getRatingByShows(id: Number): Observable<any>{

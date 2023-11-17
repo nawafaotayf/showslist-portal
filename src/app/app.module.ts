@@ -12,6 +12,7 @@ import { AllSeriesComponent } from './components/Series/all-series/all-series.co
 import { SeriesDetailsComponent } from './components/Series/series-details/series-details.component';
 import { RatingByShowsIdComponent } from './components/Rating/rating-by-shows-id/rating-by-shows-id.component';
 import { AddingRatingComponent } from './components/Rating/adding-rating/adding-rating.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { AddingRatingComponent } from './components/Rating/adding-rating/adding-
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
