@@ -12,7 +12,16 @@ import { AllSeriesComponent } from './components/Series/all-series/all-series.co
 import { SeriesDetailsComponent } from './components/Series/series-details/series-details.component';
 import { RatingByShowsIdComponent } from './components/Rating/rating-by-shows-id/rating-by-shows-id.component';
 import { AddingRatingComponent } from './components/Rating/adding-rating/adding-rating.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms'
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AddToFavoriteComponent } from './components/Favorite/add-to-favorite/add-to-favorite.component';
+import { FavoriteDetailsComponent } from './components/Favorite/favorite-details/favorite-details.component';
+import { ProfileComponent } from './components/User/profile/profile.component';
+import { EditProfileComponent } from './components/User/edit-profile/edit-profile.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { NavBarComponent } from './components/header/nav-bar/nav-bar.component';
+import { NotFound404Component } from './components/not-found404/not-found404.component';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +34,14 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms'
     SeriesDetailsComponent,
     RatingByShowsIdComponent,
     AddingRatingComponent,
+    AddToFavoriteComponent,
+    FavoriteDetailsComponent,
+    ProfileComponent,
+    EditProfileComponent,
+    SignupComponent,
+    LoginComponent,
+    NavBarComponent,
+    NotFound404Component,
   ],
   imports: [
     BrowserModule,

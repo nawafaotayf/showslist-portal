@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Ratings } from 'src/app/models/Ratings.model';
 import { RatingApiService } from 'src/app/services/rating-api.service';
-
 @Component({
   selector: 'app-rating-by-shows-id',
   templateUrl: './rating-by-shows-id.component.html',
@@ -12,6 +11,12 @@ export class RatingByShowsIdComponent implements OnInit{
   rating: Ratings[] = []
   @Input()
   id: number = 0
+  @Output()
+  commentAdded = new EventEmitter<any>();
+  
+  onCommentAdded(comment: any) {
+    this.commentAdded.emit(comment);
+  }
   constructor(private ratingApi: RatingApiService, private route: ActivatedRoute){}
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'))
@@ -23,7 +28,6 @@ export class RatingByShowsIdComponent implements OnInit{
       next: (ratings) =>
       {
         this.rating = ratings
-        console.log(ratings)
       }
     })
   }

@@ -1,0 +1,13 @@
+<select name="favorites"  [(ngModel)]="favorite.rating">
+    <option [value]="1">(1) APPALLING</option>
+    <option [value]="2">(2) HORRIBLE</option>
+    <option [value]="3">(3) VERYBAD</option>
+    <option [value]="4">(4) BAD</option>
+    <option [value]="5">(5) AVERAGE</option>
+    <option [value]="6">(6) FINE</option>
+    <option [value]="7">(7) GOOD</option>
+    <option [value]="8">(8) VERYGOOD</option>
+    <option [value]="9">(9) GREAT</option>
+    <option [value]="10">(10) MASTERPIECE</option>
+</select>
+<button type="submit" (click)="addToFavorite()" [disabled] = "favorite.rating === 0">add to favorite</button>

@@ -1,0 +1,15 @@
+<form (ngSubmit)="saveUser()" [formGroup]="signUpForm">
+    <label>Username: </label>
+    <input type="text" name="username" formControlName="username"><br>
+    <p *ngIf="usernameInput.invalid && usernameInput.touched">Name must be more then 3 characters</p>
+    <label>Password: </label>
+    <input type="password" name="password" formControlName="password"><br>
+    <p *ngIf="passwordInput.invalid && passwordInput.touched">password must be more then 7 characters</p>
+    <label>Email: </label>
+    <input type="email" name="email" formControlName="email"><br>
+    <p *ngIf="emailInput.invalid && emailInput.touched">email must be in email format</p>
+    <label>Date of birth: </label>
+    <p *ngIf="dobInput.invalid && dobInput.touched">date of birth must be right</p>
+    <input type="date" name="dob" formControlName="dob"><br>
+    <button type="submit" [disabled]="signUpForm.invalid">Sign Up</button>
+</form>

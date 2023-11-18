@@ -2,6 +2,7 @@
 <div *ngFor="let item of seriesDetails">
     <h1> {{item.name}} </h1>
     <img [src]="item.image" width="100">
+    <app-add-to-favorite [showId] = "item.id"></app-add-to-favorite>
     <p> Story: {{item.story}} </p>
     <p> Duration: {{item.duration}} </p>
     <p> studio: {{item.studios}} </p>
@@ -9,5 +10,5 @@
     <p> Episodes: {{item.episodes}} </p>
     <p> Start Date: {{item.start}} </p>
     <p> End Date: {{item.end}} </p>
-    <app-rating-by-shows-id [id] = "item.id" (commentAdded)="onRatingAdded($event)" ></app-rating-by-shows-id>
+    <app-rating-by-shows-id [id] = "item.id" (commentAdded)="onRatingAdded(id)" ></app-rating-by-shows-id>
 </div>

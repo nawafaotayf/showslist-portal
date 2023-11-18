@@ -1,0 +1,7 @@
+<app-go-back></app-go-back>
+<div *ngFor="let item of favorite; let i = index">
+    <p> {{i+1}}.</p>
+    <img [src]="item.shows.image" width="100">
+    <p>Name: {{item.shows.name}}</p>
+    <p>Rating: {{item.rating}}</p>
+</div>

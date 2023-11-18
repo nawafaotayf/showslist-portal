@@ -1,0 +1,12 @@
+<form (ngSubmit)="updateUserById()" [formGroup]="updateForm">
+    <label>username </label>
+    <input type="text" name="username" formControlName="username"><br>
+    <label>password </label>
+    <input type="password" name="password" formControlName="password"><br>
+    <label>email </label>
+    <input type="email" name="email" formControlName="email"><br>
+    <label>date of birth </label>
+    <input type="date" name="dob" formControlName="dob"><br>
+    <button type="submit">submit</button>
+</form>
+

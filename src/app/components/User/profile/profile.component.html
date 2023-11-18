@@ -1,0 +1,7 @@
+<app-go-back></app-go-back>
+<div *ngFor="let item of users">
+<p> Username: {{item.username}} </p>
+<p> Email: {{item.email}} </p>
+<p> Date of birth: {{item.dob}} </p>
+<button [routerLink]="['/edit-profile', item.id]"> edit </button>
+</div>

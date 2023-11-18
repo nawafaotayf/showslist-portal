@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { AuthApiService } from 'src/app/services/auth-api.service';
 import { RatingApiService } from 'src/app/services/rating-api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-adding-rating',
@@ -17,7 +19,7 @@ export class AddingRatingComponent implements OnInit{
   commentInput: FormControl
   ratingForm: FormGroup
 
-  constructor(private ratingApi: RatingApiService, private route: ActivatedRoute){
+  constructor(private ratingApi: RatingApiService, private authApi: AuthApiService, private route: ActivatedRoute){
     this.commentInput = new FormControl("", Validators.required)
     this.ratingForm = new FormGroup({
       comment: this.commentInput
@@ -25,10 +27,13 @@ export class AddingRatingComponent implements OnInit{
   }
   ngOnInit(): void {
     this.Id = Number(this.route.snapshot.paramMap.get('id'))
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') ?? '{}');
+    const userId = currentUser?.id;
+    
     this.rating  = [{
       comment: "",
       users:{
-        id: 1
+        id: userId
       },
       shows:{
         id: this.Id
@@ -40,12 +45,16 @@ export class AddingRatingComponent implements OnInit{
     this.rating[0].comment = this.ratingForm.get('comment')?.value;
     this.ratingApi.createRating(this.rating).subscribe({
       next:(ratings) => 
-      {console.log("Created" ,[ratings]),
+      {console.log("Created" ,[ratings])
       this.commentAdded.emit(ratings)
+      
     },
       error: (err) =>{
         console.log(err)
       }
     })
+    Swal.fire('Success!', 'Your profile has been updated.', 'success')
+    this.ratingForm.reset()
+
   }
 }

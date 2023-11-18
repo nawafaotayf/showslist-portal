@@ -2,8 +2,8 @@ export class Users{
     constructor(
         private _id: number,
         private _username: string,
-        private _password: number,
-        private _email: number,
+        private _password: string,
+        private _email: string,
         private _dob: Date
         )
         {}
@@ -13,16 +13,16 @@ export class Users{
     public set dob(value: Date) {
         this._dob = value;
     }
-    public get email(): number {
+    public get email(): string {
         return this._email;
     }
-    public set email(value: number) {
+    public set email(value: string) {
         this._email = value;
     }
-    public get password(): number {
+    public get password(): string {
         return this._password;
     }
-    public set password(value: number) {
+    public set password(value: string) {
         this._password = value;
     }
     public get username(): string {
@@ -36,5 +36,14 @@ export class Users{
     }
     public set id(value: number) {
         this._id = value;
+    }
+    public toJSON(): object{
+        return{
+            id: this.id,
+            username: this.username,
+            password: this.password,
+            email: this.email,
+            dob: this.dob
+        }
     }
 }
