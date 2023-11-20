@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Users } from 'src/app/models/Users.model';
 import { AuthApiService } from 'src/app/services/auth-api.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-signup',
@@ -15,8 +16,9 @@ export class SignupComponent {
   emailInput: FormControl
   dobInput: FormControl
   signUpForm: FormGroup
+  errorMsg: string
 
-  constructor(private signUpApi: AuthApiService, private router: Router){
+  constructor(private signUpApi: AuthApiService, private router: Router, private snackBar: MatSnackBar){
     this.usernameInput = new FormControl("",  [Validators.required, Validators.minLength(3)])
     this.passwordInput = new FormControl("",[Validators.required, Validators.minLength(7)])
     this.emailInput = new FormControl("", [Validators.required, Validators.email])
@@ -27,6 +29,7 @@ export class SignupComponent {
       email: this.emailInput,
       dob: this.dobInput
     })
+    this.errorMsg = ""
   }
 
     saveUser(){
@@ -37,12 +40,18 @@ export class SignupComponent {
         this.signUpForm.value.dob,
       ).subscribe({
         next: (users: Users)=>{
-        console.log("created", [users])
-        
+        console.log("created", [users]),
+        this.snackBar.open('You have successfully signed up!', 'Close', {duration: 3000,}),
+        this.router.navigate(["/login"])
       },
-        error: (err) => console.log(err)
+        error: (err) =>{
+          console.log(err, err.status)
+          if(err.status === 400){
+            this.errorMsg = "Duplcate username/email"
+          }
+        }
       })
-      this.router.navigate(["/"])
+      
     }
   }
 

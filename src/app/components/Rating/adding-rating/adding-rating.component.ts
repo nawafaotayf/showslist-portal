@@ -45,10 +45,10 @@ export class AddingRatingComponent implements OnInit{
     this.rating[0].comment = this.ratingForm.get('comment')?.value;
     this.ratingApi.createRating(this.rating).subscribe({
       next:(ratings) => 
-      {console.log("Created" ,[ratings])
+      {
+      console.log("Created" ,ratings),
       this.commentAdded.emit(ratings)
-      
-    },
+      },
       error: (err) =>{
         console.log(err)
       }

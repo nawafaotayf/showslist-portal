@@ -16,7 +16,7 @@ export class LoginComponent {
   errorMsg: string
 
   constructor(private loginApi: AuthApiService, private router: Router){
-    this.usernameInput = new FormControl("",  [Validators.required, Validators.minLength(5)])
+    this.usernameInput = new FormControl("",  [Validators.required, Validators.minLength(3)])
     this.passwordInput = new FormControl("",[Validators.required, Validators.minLength(7)])
     this.loginForm = new FormGroup({
        username: this.usernameInput,
@@ -29,6 +29,8 @@ export class LoginComponent {
     this.loginApi.login(this.loginForm.value.username, this.loginForm.value.password).subscribe({
       next: (response) => {
         console.log("Login successfuly")
+        this.loginApi.isloggedIn = true
+        localStorage.setItem("isLoggedIn", 'true')
         localStorage.removeItem("Token")
         localStorage.setItem("Token", response.token)
         this.loginApi.authenticate().subscribe({

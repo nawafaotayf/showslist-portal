@@ -11,12 +11,7 @@ export class RatingByShowsIdComponent implements OnInit{
   rating: Ratings[] = []
   @Input()
   id: number = 0
-  @Output()
-  commentAdded = new EventEmitter<any>();
   
-  onCommentAdded(comment: any) {
-    this.commentAdded.emit(comment);
-  }
   constructor(private ratingApi: RatingApiService, private route: ActivatedRoute){}
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'))

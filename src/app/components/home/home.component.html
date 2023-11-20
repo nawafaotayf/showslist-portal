@@ -1,5 +1,20 @@
-<button routerLink="/all-movie" >All Movie</button>
+<app-headers></app-headers>
+<!-- <button routerLink="/all-movie" >All Movie</button>
 <button routerLink="/all-series" >All series</button>
-<button [routerLink]="['/profile']" >Profile</button>
-<button [routerLink]="['/favorite']" >favorite</button>
-<app-nav-bar></app-nav-bar>
+<button [routerLink]="['/favorite']" >favorite</button> -->
+
+<div class="container">
+    <h1 class="text-center my-4">Movie/TV Show List</h1>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of movies">
+        <div class="card mb-4">
+          <!-- <img class="card-img-top" [src]="item.image" alt="Card image cap"> -->
+          <div class="card-body">
+            <h5 class="card-title">{{item.name}}</h5>
+            <p class="card-text">{{item.story}}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

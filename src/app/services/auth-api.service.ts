@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Users } from '../models/Users.model';
 
 @Injectable({
@@ -8,6 +8,8 @@ import { Users } from '../models/Users.model';
 })
 export class AuthApiService {
   readonly authApiUrl = "http://localhost:8080/movielist/auth"
+  public isloggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  
   constructor(private http: HttpClient) {}
 
   isAuthenticatied(): boolean {
@@ -37,8 +39,10 @@ export class AuthApiService {
     return this.http.post<any>(`${this.authApiUrl}/signin`, body)
   }
   logout(){
+    this.isloggedIn = false
     localStorage.removeItem("Token")
     localStorage.removeItem("currentUser")
+    localStorage.removeItem('isLoggedIn');
   }
 
 }

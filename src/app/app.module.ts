@@ -21,6 +21,13 @@ import { SignupComponent } from './components/auth/signup/signup.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { NavBarComponent } from './components/header/nav-bar/nav-bar.component';
 import { NotFound404Component } from './components/not-found404/not-found404.component';
+import { HeadersComponent } from './components/header/headers/headers.component';
+import { AvgrageRatingComponent } from './components/Favorite/avgrage-rating/avgrage-rating.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AllUsersComponent } from './components/User/all-users/all-users.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
+
 
 
 @NgModule({
@@ -42,6 +49,10 @@ import { NotFound404Component } from './components/not-found404/not-found404.com
     LoginComponent,
     NavBarComponent,
     NotFound404Component,
+    HeadersComponent,
+    AvgrageRatingComponent,
+    AllUsersComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -49,7 +60,10 @@ import { NotFound404Component } from './components/not-found404/not-found404.com
     HttpClientModule,
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

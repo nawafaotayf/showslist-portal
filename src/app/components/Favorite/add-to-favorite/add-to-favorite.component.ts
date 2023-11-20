@@ -29,10 +29,10 @@ export class AddToFavoriteComponent implements OnInit{
 
   }
   getAvgRating(){
-    this.favoriteApi.gerFavoriteAverage(this.showId).subscribe({
+    this.favoriteApi.getFavoriteAverage(this.showId).subscribe({
       next: (favorites) =>{
         this.favorite = favorites
-      }
+        }
     })
   }
   addToFavorite(){

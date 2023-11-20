@@ -20,7 +20,7 @@ export class FavoriteApiService {
   getFavoriteByUserIdAndShowId(userId: number, showId: number): Observable<any>{
     return this.http.get(`${this.favoriteApiUrl}/show/${userId}/${showId}`)
   }
-  gerFavoriteAverage(id: number): Observable<any>{
+  getFavoriteAverage(id: number): Observable<any>{
     return this.http.get(`${this.favoriteApiUrl}/avg-rating/${id}`)
   }
 }

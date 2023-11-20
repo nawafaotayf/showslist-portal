@@ -1,7 +1,16 @@
+<app-headers></app-headers>
 <app-go-back></app-go-back>
-<div *ngFor="let item of users">
-<p> Username: {{item.username}} </p>
-<p> Email: {{item.email}} </p>
-<p> Date of birth: {{item.dob}} </p>
-<button [routerLink]="['/edit-profile', item.id]"> edit </button>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6" *ngFor="let item of users">
+      <div class="card my-4">
+        <div class="card-body">
+          <h2 class="text-center">{{item.username}}</h2>
+          <p><strong>Email:</strong> {{item.email}}</p>
+          <p><strong>Date of Birth:</strong> {{item.dob}}</p>
+          <a [routerLink]="['/edit-profile', item.id]" class="btn btn-primary">Edit Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

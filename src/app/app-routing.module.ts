@@ -12,6 +12,7 @@ import { SignupComponent } from './components/auth/signup/signup.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { NotFound404Component } from './components/not-found404/not-found404.component';
+import { AllUsersComponent } from './components/User/all-users/all-users.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,11 @@ const routes: Routes = [
     path: "edit-profile/:id",
     canActivate: [AuthGuardService],
     component: EditProfileComponent
+  },
+  {
+    path: "all-users",
+    canActivate: [AuthGuardService],
+    component: AllUsersComponent
   },
   {
     path: "signup",
