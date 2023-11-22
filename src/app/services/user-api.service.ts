@@ -15,6 +15,7 @@ export class UserApiService {
   getUserById(id: number): Observable<any>{
     return this.http.get(`${this.userApiUrl}/${id}`)
   }
+
   updateUserById(id: number, user: any): Observable<any>{
     return this.http.put(`${this.userApiUrl}/updateuser/${id}`, user)
   }
@@ -24,11 +25,21 @@ export class UserApiService {
       return this.http.get(`${this.adminApiUrl}/allusers`)
     }
     else{
-     this.router.navigate(['/'])
+     this.router.navigate(['/Unauthorized'])
     throw new Error('Unauthorized');
     }
   }
+  deleteUser(id: number): Observable<any>{
+    const currentUser = JSON.parse(localStorage.getItem("currentUser") ?? '{}')
+    if(currentUser && currentUser.roles === "ADMIN"){
+      return this.http.get(`${this.adminApiUrl}/deleteuser/${id}`)
+    }
+    else{
+     this.router.navigate(['/Unauthorized'])
+    throw new Error('Unauthorized');
+    }
 
 
 
+}
 }

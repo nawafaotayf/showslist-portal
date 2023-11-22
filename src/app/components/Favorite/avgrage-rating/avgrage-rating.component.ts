@@ -9,7 +9,7 @@ import { FavoriteApiService } from 'src/app/services/favorite-api.service';
   styleUrls: ['./avgrage-rating.component.css']
 })
 export class AvgrageRatingComponent {
-  favorite: Favorite[] = []
+  favorite: Number = 0
   showId:number = 0
   constructor(private favoriteApi: FavoriteApiService, private route: ActivatedRoute){}
 
@@ -20,8 +20,8 @@ export class AvgrageRatingComponent {
   getAvgRating(){
     this.favoriteApi.getFavoriteAverage(this.showId).subscribe({
       next: (favorites) =>{
-        this.favorite = [favorites]
-        console.log(favorites)
+        this.favorite = favorites
+        console.log(this.favorite)
 
         }
     })

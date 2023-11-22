@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 import { Series } from 'src/app/models/Series.model';
 import { RatingApiService } from 'src/app/services/rating-api.service';
 import { SeriesApiService } from 'src/app/services/series-api.service';
+
 
 @Component({
   selector: 'app-series-details',
   templateUrl: './series-details.component.html',
   styleUrls: ['./series-details.component.css']
 })
+
 export class SeriesDetailsComponent implements OnInit{
   seriesDetails: Series[] = []
   id: number = 0
@@ -28,7 +30,9 @@ export class SeriesDetailsComponent implements OnInit{
   getSeriesById(id: number){
     this.seriesApi.getSeriesById(id).subscribe({
       next: (series) =>
-      {this.seriesDetails = [series]}
+      {
+        this.seriesDetails = [series]
+      }
     })
   }
 }

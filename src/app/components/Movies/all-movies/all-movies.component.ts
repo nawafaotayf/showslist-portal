@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Movies } from 'src/app/models/Movies.model';
 import { MovieApiService } from 'src/app/services/movie-api.service';
 
+
 @Component({
   selector: 'app-all-movies',
   templateUrl: './all-movies.component.html',
@@ -26,4 +27,6 @@ constructor(private movieApi: MovieApiService){}
       } 
     })
   }
+
 }
+

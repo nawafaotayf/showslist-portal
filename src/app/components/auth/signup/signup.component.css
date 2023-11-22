@@ -1,0 +1,9 @@
+a{
+    color: blue;
+}
+::ng-deep .mat-snack-bar-container {
+    color: white !important;
+    background-color: blue !important; /* Change to your preferred color */
+    max-width: 90% !important; /* Adjust as needed */
+    margin: auto !important; /* Center the snackbar */
+}

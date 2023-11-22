@@ -1,6 +1,17 @@
-<hr>
+<!-- <hr>
 <app-adding-rating [Id]="id"></app-adding-rating>
 <div *ngFor="let item of rating">
     <p> name: {{item.users.username}} </p>
     <p> {{item.comment}} </p>
+</div> -->
+
+<app-adding-rating [Id]="id"></app-adding-rating>
+
+<div *ngFor="let item of rating" class="card mb-3">
+    <div class="card-header">
+        {{item.users.username}}
+    </div>
+    <div class="card-body">
+        <p class="card-text">{{item.comment}}</p>
+    </div>
 </div>

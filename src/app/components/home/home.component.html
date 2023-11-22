@@ -1,20 +1,23 @@
 <app-headers></app-headers>
-<!-- <button routerLink="/all-movie" >All Movie</button>
-<button routerLink="/all-series" >All series</button>
-<button [routerLink]="['/favorite']" >favorite</button> -->
-
-<div class="container">
-    <h1 class="text-center my-4">Movie/TV Show List</h1>
-    <div class="row">
-      <div class="col-md-4" *ngFor="let item of movies">
-        <div class="card mb-4">
-          <!-- <img class="card-img-top" [src]="item.image" alt="Card image cap"> -->
-          <div class="card-body">
-            <h5 class="card-title">{{item.name}}</h5>
-            <p class="card-text">{{item.story}}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+<div class="container" style="margin-top: 100px;">
+  <div class="row justify-content-center">
+    <div class="col-lg-4">
+      <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-header"><h2>Explore Movies</h2></div>
+        <div class="card-body">
+          <p class="card-text">Explore our vast collection of movies from various genres and eras.</p>
+          <a routerLink="/all-movie" class="btn btn-primary">All Movies</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-header"><h2>Explore TV Shows</h2></div>
+        <div class="card-body">
+              <p class="card-text">Dive into our extensive series library, featuring shows from around the world.</p>
+          <a routerLink="/all-series" class="btn btn-primary">All Series</a>
         </div>
       </div>
     </div>
   </div>
+</div>

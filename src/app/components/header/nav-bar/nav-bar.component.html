@@ -1,17 +1,40 @@
-<ul class="navbar-nav d-flex align-items-center">
+ <ul class="navbar-nav d-flex align-items-center">
     <li class="nav-item" *ngIf="!authApi.isloggedIn">
         <a class="btn btn-link nav-link" routerLink="/login">Login</a>
     </li>
-    <li class="nav-item" *ngIf="authApi.isloggedIn">
-        <a class="nav-link" routerLink="/profile">My Profile</a>
+    <li class="nav-item" *ngIf="authApi.isloggedIn && currentUser.roles === 'ADMIN'">
+        <a class="nav-link" routerLink="/all-users">All user</a>
     </li>
     <li class="nav-item" *ngIf="authApi.isloggedIn">
-        <a class="nav-link" [routerLink]="['/favorite']">My Favorites</a>
+        <a class="nav-link" routerLink="/profile"> Profile</a>
+    </li>
+    <li class="nav-item" *ngIf="authApi.isloggedIn">
+        <a class="nav-link" [routerLink]="['/favorite']">Favorites</a>
+    </li>
+    <li style="text-decoration: underline;" *ngFor="let item of users">
+       welcome {{item.username}}
+    </li>
+    <li class="nav-item" *ngIf="authApi.isloggedIn">
+        <button class="btn btn-light nav-link" style="padding-left: 10px;" (click)="logout()">Logout</button>
+    </li>
+</ul> 
+
+
+ <!-- <ul class="navbar-nav d-flex align-items-center">
+    <li class="nav-item" *ngIf="!authApi.isloggedIn">
+        <a class="btn btn-link nav-link text" routerLink="/login">Login</a>
+    </li>
+    <li class="nav-item" *ngIf="authApi.isloggedIn">
+        <a class="nav-link text" routerLink="/profile">My Profile</a>
+    </li>
+    <li class="nav-item" *ngIf="authApi.isloggedIn">
+        <a class="nav-link text" [routerLink]="['/favorite']">My Favorites</a>
     </li>
     <li  *ngFor="let item of users">
-       welcome, {{item.username}}
+       <span class="text">welcome, {{item.username}}</span>
     </li>
     <li class="nav-item" *ngIf="authApi.isloggedIn">
-        <button class="btn btn-link nav-link" (click)="logout()">Logout</button>
+        <button class="btn btn-light nav-link text" (click)="logout()">Logout</button>
     </li>
-</ul>
+</ul>  -->
+

@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthApiService } from 'src/app/services/auth-api.service';
 import { RatingApiService } from 'src/app/services/rating-api.service';
+import { Location } from '@angular/common';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -19,7 +20,7 @@ export class AddingRatingComponent implements OnInit{
   commentInput: FormControl
   ratingForm: FormGroup
 
-  constructor(private ratingApi: RatingApiService, private authApi: AuthApiService, private route: ActivatedRoute){
+  constructor(private ratingApi: RatingApiService, private authApi: AuthApiService, private route: ActivatedRoute, private router: Router, private location: Location){
     this.commentInput = new FormControl("", Validators.required)
     this.ratingForm = new FormGroup({
       comment: this.commentInput
@@ -46,15 +47,16 @@ export class AddingRatingComponent implements OnInit{
     this.ratingApi.createRating(this.rating).subscribe({
       next:(ratings) => 
       {
-      console.log("Created" ,ratings),
-      this.commentAdded.emit(ratings)
-      },
+      console.log("Created" ,ratings)
+
+    },
       error: (err) =>{
         console.log(err)
       }
     })
-    Swal.fire('Success!', 'Your profile has been updated.', 'success')
-    this.ratingForm.reset()
-
+    Swal.fire('Success!', 'Your Comment added successfully.', 'success')
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([decodeURI(this.location.path())]);
+    });      
   }
 }

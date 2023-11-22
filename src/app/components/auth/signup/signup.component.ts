@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Users } from 'src/app/models/Users.model';
 import { AuthApiService } from 'src/app/services/auth-api.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
@@ -18,7 +18,7 @@ export class SignupComponent {
   signUpForm: FormGroup
   errorMsg: string
 
-  constructor(private signUpApi: AuthApiService, private router: Router, private snackBar: MatSnackBar){
+  constructor(private signUpApi: AuthApiService, private router: Router){
     this.usernameInput = new FormControl("",  [Validators.required, Validators.minLength(3)])
     this.passwordInput = new FormControl("",[Validators.required, Validators.minLength(7)])
     this.emailInput = new FormControl("", [Validators.required, Validators.email])
@@ -41,7 +41,7 @@ export class SignupComponent {
       ).subscribe({
         next: (users: Users)=>{
         console.log("created", [users]),
-        this.snackBar.open('You have successfully signed up!', 'Close', {duration: 3000,}),
+        Swal.fire('Success!', 'SignUp successfully.', 'success')
         this.router.navigate(["/login"])
       },
         error: (err) =>{

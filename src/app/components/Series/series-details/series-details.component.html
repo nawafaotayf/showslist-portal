@@ -1,4 +1,4 @@
-<app-headers></app-headers>
+<!-- <app-headers></app-headers>
 <app-go-back></app-go-back>
 <div *ngFor="let item of seriesDetails">
     <h1> {{item.name}} </h1>
@@ -12,4 +12,39 @@
     <p> Start Date: {{item.start}} </p>
     <p> End Date: {{item.end}} </p>
     <app-rating-by-shows-id [id] = "item.id" ></app-rating-by-shows-id>
-</div>
+</div> -->
+<app-headers></app-headers>
+   <app-go-back></app-go-back>
+   <div class="container">
+       <div *ngFor="let item of seriesDetails" class="card mb-3 mx-auto" style="max-width: 1000px; padding: 20px;">
+           <div class="row g-0">
+               <div class="col-md-4">
+                <h3 class="card-title">{{item.name}}</h3>
+                   <img [src]="item.image" class="img-fluid rounded" alt="{{item.name}}">
+               </div>
+               <div class="col-md-8">
+                <br>
+                   <div class="card-body">
+                       <h5 class="card-text">Story</h5>
+                       <p class="card-text"> {{item.story}}</p>
+                       <hr>  
+                       <h5 class="card-text">Information: </h5>
+                       <p class="card-text">Duration: {{item.duration}}</p>
+                       <p class="card-text">Studio: {{item.studios}}</p>
+                       <p class="card-text">Season: {{item.seasons}}</p>
+                       <p class="card-text">Start Date: {{item.start}}</p>
+                       <p  class="card-text">End Date: {{item.end ? item.end : '---'}}</p>
+                       <hr>
+                       <div class="d-flex justify-content-between align-items-center">
+                           <div class="btn-group">
+                               <app-add-to-favorite [showId]="item.id"></app-add-to-favorite>
+                           </div>
+                       </div>
+                       <br><br>
+                       <app-rating-by-shows-id [id]="item.id"></app-rating-by-shows-id>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+   

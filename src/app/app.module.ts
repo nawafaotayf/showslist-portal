@@ -27,6 +27,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AllUsersComponent } from './components/User/all-users/all-users.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatIconModule } from '@angular/material/icon';
+
 
 
 
@@ -64,6 +67,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
     NgbModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
+    MatPaginatorModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

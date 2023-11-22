@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FavoriteApiService } from 'src/app/services/favorite-api.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-add-to-favorite',
@@ -12,7 +14,7 @@ export class AddToFavoriteComponent implements OnInit{
   showId: number = 0
   favorite: any
   
-  constructor(private favoriteApi: FavoriteApiService, private route: ActivatedRoute){}
+  constructor(private favoriteApi: FavoriteApiService, private route: ActivatedRoute, private router: Router){}
   ngOnInit(): void {
     this.showId = Number(this.route.snapshot.paramMap.get('id'))
     const currentUser = JSON.parse(localStorage.getItem('currentUser') ?? '{}');
@@ -44,5 +46,8 @@ export class AddToFavoriteComponent implements OnInit{
         console.log(err)
       }
     })
+    Swal.fire('Success!', 'show added to your favorie successfully.', 'success')
+    this.router.navigate(["/favorite"])
+
   }
 }

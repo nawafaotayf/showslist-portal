@@ -13,6 +13,7 @@ import { UserApiService } from 'src/app/services/user-api.service';
 export class NavBarComponent {
   users: Users[] = []
   id: number = 0
+  currentUser = JSON.parse(localStorage.getItem('currentUser')??'{}');
   constructor(public authApi: AuthApiService, private router: Router, private userApi: UserApiService, private route: ActivatedRoute){
   }
   ngOnInit(): void {
