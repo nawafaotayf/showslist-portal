@@ -5,7 +5,7 @@
 ScreenZone is a web application designed to manage and display a list of movies and Tv show. It allows users to add their own ratings and reviews for each movie or Tv show. The application provides an Page for users to navigate through the movie/Tv show list.
 
 ## Class Diagram
-![UseCase](classdiagram.png)
+![UseCase](usecase.png)
 
 ## Setup
 
