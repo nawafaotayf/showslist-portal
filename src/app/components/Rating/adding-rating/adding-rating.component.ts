@@ -20,7 +20,7 @@ export class AddingRatingComponent implements OnInit{
   commentInput: FormControl
   ratingForm: FormGroup
 
-  constructor(private ratingApi: RatingApiService, private authApi: AuthApiService, private route: ActivatedRoute, private router: Router, private location: Location){
+  constructor(private ratingApi: RatingApiService, public authApi: AuthApiService, private route: ActivatedRoute, private router: Router, private location: Location, ){
     this.commentInput = new FormControl("", Validators.required)
     this.ratingForm = new FormGroup({
       comment: this.commentInput

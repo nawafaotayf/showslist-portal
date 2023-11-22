@@ -5,20 +5,22 @@
                 <h3>Avg-Score</h3>
                 <h3><app-avgrage-rating></app-avgrage-rating></h3>
             </div>
-            <label for="favorites">Select Rating: </label>
-            <select class="custom-select" name="favorites" [(ngModel)]="favorite.rating">
-                <option [value]="1">(1) APPALLING</option>
-                <option [value]="2">(2) HORRIBLE</option>
-                <option [value]="3">(3) VERYBAD</option>
-                <option [value]="4">(4) BAD</option>
-                <option [value]="5">(5) AVERAGE</option>
-                <option [value]="6">(6) FINE</option>
-                <option [value]="7">(7) GOOD</option>
-                <option [value]="8">(8) VERYGOOD</option>
-                <option [value]="9">(9) GREAT</option>
-                <option [value]="10">(10) MASTERPIECE</option>
-            </select>
-            <button style="margin-left: 5px;" type="submit" class="btn btn-primary btn-sm" (click)="addToFavorite()" [disabled] = "favorite.rating === 0">Add to Favorite</button>
+            <label *ngIf="authApi.isloggedIn" for="favorites">Select Rating: </label>
+            <div *ngIf="authApi.isloggedIn">
+                <select class="custom-select" name="favorites" [(ngModel)]="favorite.rating">
+                    <option [value]="1">(1) APPALLING</option>
+                    <option [value]="2">(2) HORRIBLE</option>
+                    <option [value]="3">(3) VERYBAD</option>
+                    <option [value]="4">(4) BAD</option>
+                    <option [value]="5">(5) AVERAGE</option>
+                    <option [value]="6">(6) FINE</option>
+                    <option [value]="7">(7) GOOD</option>
+                    <option [value]="8">(8) VERYGOOD</option>
+                    <option [value]="9">(9) GREAT</option>
+                    <option [value]="10">(10) MASTERPIECE</option>
+                </select>
+                <button style="margin-left: 5px;" type="submit" class="btn btn-primary btn-sm" (click)="addToFavorite()" [disabled] = "favorite.rating === 0">Add to Favorite</button>
+            </div>
         </div> 
     </div>
 </div>

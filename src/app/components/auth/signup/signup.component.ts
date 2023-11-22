@@ -41,7 +41,7 @@ export class SignupComponent {
       ).subscribe({
         next: (users: Users)=>{
         console.log("created", [users]),
-        Swal.fire('Success!', 'SignUp successfully.', 'success')
+        Swal.fire('Success!', 'Signup successfully.', 'success')
         this.router.navigate(["/login"])
       },
         error: (err) =>{

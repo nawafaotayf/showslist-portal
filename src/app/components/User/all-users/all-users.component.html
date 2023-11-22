@@ -1,17 +1,19 @@
 <app-headers></app-headers>
 <div class="container">
-  <table class="table table-striped mt-4">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Username</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of users; let i = index">
-        <th scope="row">{{i+1}}</th>
-        <td>{{item.username}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    <table class="table table-striped mt-4">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Username</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of users; let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{item.username}}</td>
+          <td><button (click)="deleteUserById(item.id)" class="btn btn-danger">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

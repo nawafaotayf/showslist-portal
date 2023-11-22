@@ -11,7 +11,7 @@ import { MovieApiService } from 'src/app/services/movie-api.service';
 export class MovieDetailsComponent implements OnInit{
   movieDetails: Movies[] = []
   id: number = 0  
-  constructor(private movieApi: MovieApiService, private route: ActivatedRoute){}
+  constructor(private movieApi: MovieApiService, private route: ActivatedRoute,){}
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id')) 
     this.getMovieById(this.id)

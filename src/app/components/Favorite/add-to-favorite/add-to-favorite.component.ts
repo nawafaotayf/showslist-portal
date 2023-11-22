@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthApiService } from 'src/app/services/auth-api.service';
 import { FavoriteApiService } from 'src/app/services/favorite-api.service';
 import Swal from 'sweetalert2';
 
@@ -14,7 +15,7 @@ export class AddToFavoriteComponent implements OnInit{
   showId: number = 0
   favorite: any
   
-  constructor(private favoriteApi: FavoriteApiService, private route: ActivatedRoute, private router: Router){}
+  constructor(private favoriteApi: FavoriteApiService, private route: ActivatedRoute, private router: Router,  public authApi: AuthApiService){}
   ngOnInit(): void {
     this.showId = Number(this.route.snapshot.paramMap.get('id'))
     const currentUser = JSON.parse(localStorage.getItem('currentUser') ?? '{}');

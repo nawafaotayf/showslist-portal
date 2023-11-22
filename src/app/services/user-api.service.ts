@@ -30,16 +30,11 @@ export class UserApiService {
     }
   }
   deleteUser(id: number): Observable<any>{
-    const currentUser = JSON.parse(localStorage.getItem("currentUser") ?? '{}')
-    if(currentUser && currentUser.roles === "ADMIN"){
-      return this.http.get(`${this.adminApiUrl}/deleteuser/${id}`)
-    }
-    else{
-     this.router.navigate(['/Unauthorized'])
-    throw new Error('Unauthorized');
+      return this.http.delete(`${this.adminApiUrl}/deleteuser/${id}`)
     }
 
 
 
+
 }
-}
+

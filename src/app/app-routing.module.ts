@@ -17,37 +17,37 @@ import { AllUsersComponent } from './components/User/all-users/all-users.compone
 const routes: Routes = [
   {
     path: "",
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
     component: HomeComponent
   },
   {
     path: "all-movie",
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
     component: AllMoviesComponent
   },
   {
     path: "movie/:id",
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
     component: MovieDetailsComponent
   },
   {
     path: "all-series",
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
     component: AllSeriesComponent
   },
   {
     path: "series/:id",
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
     component: SeriesDetailsComponent
   },
   {
     path: "favorite",
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
     component: FavoriteDetailsComponent
   },
   {
     path: "profile",
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
     component: ProfileComponent
   },
   {
