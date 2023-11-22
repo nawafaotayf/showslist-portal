@@ -1,27 +1,42 @@
-# ShowsListPortal
+# ScreenZone Portal
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.9.
+## Description
 
-## Development server
+ScreenZone is a web application designed to manage and display a list of movies and Tv show. It allows users to add their own ratings and reviews for each movie or Tv show. The application provides an Page for users to navigate through the movie/Tv show list.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Class Diagram
+![UseCase](classdiagram.png)
 
-## Code scaffolding
+## Setup
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone the repository to your local machine.
+2. Run `npm install` to make sure you get all things  
+3. Set up the back-end from [ScreenZone Api](https://github.com/nawafaotayf/showslist-api)
+4. Run the application after back-end
+   
+## Technologies Used
+- **Visual Studio**: This is the integrated development environment (IDE) used for the project. It provides comprehensive facilities to computer programmers for software development.
+- **Angular**: This is the web application framework used. It's a platform for building web applications in HTML and either JavaScript or a language like TypeScript that compiles to JavaScript.
+- **Bootstrap**: This is the most popular CSS Framework for developing responsive and mobile-first websites. It's used for designing the user interface in this project.
 
-## Build
+## Pages
+1. Login/SignUp page
+2. Home Page
+3. Movie/Tv shows Page
+4. Movie/Tv shows details page including adding rating and comment.
+5. Profile Page including edit profile
+6. Alluser page for admin only.
+   
+## Extra Links
+- [Trello Board](https://trello.com/invite/b/jDP6CrCp/ATTIc883f6c291416b9ff4c234672e1559da8A26E0B0/shows-list)
+- [Presentation](https://docs.google.com/presentation/d/1MAeHkpOcHL-RgdyD2i5E3QJT28XKJNGuchqMLxYpn64/edit?usp=sharing)
+## Future Work
+In the future, I plan to extend this project in several ways:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. **Enhance the design:** I plan to improve the user interface and user experience of the application.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+2. **Recommendation System:** I want to implement a recommendation system that suggests movies or series to users based on their viewing history and ratings.
+## Resources
+- [Bootstrap](https://getbootstrap.com/)
+- [Angular Doc](https://angular.io/start)
+- [Stack OverFlow](https://stackoverflow.com)
